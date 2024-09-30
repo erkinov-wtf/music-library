@@ -1,0 +1,7 @@
+time=2024-09-30T22:55:31.749+05:00 level=INFO msg="logger initiated"
+time=2024-09-30T22:55:31.749+05:00 level=DEBUG msg="DEBUG mode set"
+time=2024-09-30T22:55:46.489+05:00 level=ERROR msg="api.song.Info: ERR: song not found"
+time=2024-09-30T22:56:02.808+05:00 level=ERROR msg="api.song.Info: ERR: song not found"
+time=2024-09-30T22:56:10.128+05:00 level=ERROR msg="api.song.Info: ERR: song not found"
+time=2024-09-30T22:56:10.958+05:00 level=ERROR msg="api.song.Info: ERR: song not found"
+time=2024-09-30T22:56:23.404+05:00 level=ERROR msg="api.song.Info: ERR: song not found"

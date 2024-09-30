@@ -1,0 +1,4 @@
+time=2024-09-30T22:03:41.264+05:00 level=INFO msg="logger initiated"
+time=2024-09-30T22:03:41.264+05:00 level=DEBUG msg="DEBUG mode set"
+time=2024-09-30T22:03:48.317+05:00 level=DEBUG msg="api.song.Create: DBG: request body received, parsing..."
+time=2024-09-30T22:03:48.318+05:00 level=ERROR msg="api.song.Create: ERR: cant create new song: ERROR: invalid input syntax for type uuid: \"Linkin Park\" (SQLSTATE 22P02)"

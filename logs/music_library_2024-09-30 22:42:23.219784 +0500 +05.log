@@ -1,0 +1,3 @@
+time=2024-09-30T22:42:23.219+05:00 level=INFO msg="logger initiated"
+time=2024-09-30T22:42:23.220+05:00 level=DEBUG msg="DEBUG mode set"
+time=2024-09-30T22:44:35.679+05:00 level=DEBUG msg="api.song.Lyrics: DBG: api.song.Lyrics: successfully fetched lyrics for song ID cbcb1bc1-abb7-42a3-9a52-a22e002833d9"

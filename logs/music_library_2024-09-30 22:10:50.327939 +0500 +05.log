@@ -1,0 +1,5 @@
+time=2024-09-30T22:10:50.327+05:00 level=INFO msg="logger initiated"
+time=2024-09-30T22:10:50.328+05:00 level=DEBUG msg="DEBUG mode set"
+time=2024-09-30T22:11:16.227+05:00 level=DEBUG msg="api.song.Create: DBG: request body received, parsing..."
+time=2024-09-30T22:11:29.376+05:00 level=DEBUG msg="api.song.Create: DBG: request body received, parsing..."
+time=2024-09-30T22:11:47.738+05:00 level=ERROR msg="api.song.Index: ERR: Failed to count total: ERROR: syntax error at or near \"group\" (SQLSTATE 42601)"
