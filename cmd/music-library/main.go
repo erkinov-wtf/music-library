@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	_ "music-library/docs"
 	"music-library/internal/config"
 	"music-library/internal/handlers/dependencyInjection"
 	"music-library/internal/routes/song"
@@ -16,6 +19,7 @@ func main() {
 	database.DBConnect()
 
 	router := gin.Default()
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	apiPrefixRoute := router.Group("/api")
 	container := dependencyInjection.NewContainer()
 

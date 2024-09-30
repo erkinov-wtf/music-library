@@ -13,6 +13,18 @@ import (
 	"strings"
 )
 
+// CreateSong godoc
+// @Summary Create a new song
+// @Description Create a new song with group and song name
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param group body string true "Group"
+// @Param song body string true "Song"
+// @Success 201 {object} song.Song
+// @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
+// @Router /api/songs [post]
 func (*songHandler) Create(context *gin.Context) {
 	const op = "api.song.Create"
 	var err error
@@ -47,6 +59,21 @@ func (*songHandler) Create(context *gin.Context) {
 	context.JSON(http.StatusCreated, gin.H{"data": &newSong})
 }
 
+// ListSongs godoc
+// @Summary Get paginated list of songs
+// @Description Get a list of songs with optional filtering by group and song name
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param page query int false "Page number"
+// @Param limit query int false "Number of items per page"
+// @Param group query string false "Filter by group"
+// @Param song query string false "Filter by song"
+// @Param showLyrics query string false "Show song lyrics if set to true"
+// @Success 200 {object} map[string]interface{} "data, total, limit, page, pages"
+// @Failure 400 {object} map[string]string
+// @Failure 500 {object} map[string]string
+// @Router /api/songs [get]
 func (*songHandler) Index(context *gin.Context) {
 	const op = "api.song.Index"
 
@@ -126,6 +153,17 @@ func (*songHandler) Index(context *gin.Context) {
 	})
 }
 
+// ShowSong godoc
+// @Summary Get song by ID
+// @Description Get details of a specific song by its UUID
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param id path string true "Song ID"
+// @Success 200 {object} song.Song
+// @Failure 400 {object} map[string]string
+// @Failure 404 {object} map[string]string
+// @Router /api/songs/{id} [get]
 func (*songHandler) Show(context *gin.Context) {
 	const op = "api.song.Show"
 
@@ -149,6 +187,23 @@ func (*songHandler) Show(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"data": rawSong})
 }
 
+// UpdateSong godoc
+// @Summary Update song by ID
+// @Description Update the song details by its UUID
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param id path string true "Song ID"
+// @Param group body string true "Group"
+// @Param song body string true "Song"
+// @Param date body string true "Date"
+// @Param lyrics body string true "Lyrics"
+// @Param link body string true "Link"
+// @Success 200 {object} song.Song
+// @Failure 400 {object} map[string]string
+// @Failure 404 {object} map[string]string
+// @Failure 500 {object} map[string]string
+// @Router /api/songs/{id} [put]
 func (*songHandler) Update(context *gin.Context) {
 	const op = "api.song.Update"
 
@@ -199,6 +254,19 @@ func (*songHandler) Update(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"data": &songData})
 }
 
+// GetSongLyrics godoc
+// @Summary Get paginated song lyrics
+// @Description Get lyrics of a song by its UUID, with pagination
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param id path string true "Song ID"
+// @Param page query int false "Page number"
+// @Param limit query int false "Number of lines per page"
+// @Success 200 {object} map[string]interface{} "data, page, limit, total"
+// @Failure 400 {object} map[string]string
+// @Failure 404 {object} map[string]string
+// @Router /api/songs/{id}/lyrics [get]
 func (*songHandler) Lyrics(context *gin.Context) {
 	const op = "api.song.Lyrics"
 
@@ -266,6 +334,18 @@ func (*songHandler) Lyrics(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"data": response})
 }
 
+// GetSongInfo godoc
+// @Summary Get song info by group and song name
+// @Description Get song lyrics, date, and link by specifying the group and song name
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param group query string true "Group name"
+// @Param song query string true "Song name"
+// @Success 200 {object} song.Song
+// @Failure 400 {object} map[string]string
+// @Failure 404 {object} map[string]string
+// @Router /api/songs/info [get]
 func (*songHandler) Info(context *gin.Context) {
 	const op = "api.song.Info"
 
@@ -292,6 +372,18 @@ func (*songHandler) Info(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"data": &songData})
 }
 
+// DeleteSong godoc
+// @Summary Delete a song by ID
+// @Description Delete a specific song by its UUID
+// @Tags songs
+// @Accept json
+// @Produce json
+// @Param id path string true "Song ID"
+// @Success 204 {string} string "No Content"
+// @Failure 400 {object} map[string]string
+// @Failure 404 {object} map[string]string
+// @Failure 500 {object} map[string]string
+// @Router /api/songs/{id} [delete]
 func (*songHandler) Delete(context *gin.Context) {
 	const op = "api.song.Delete"
 

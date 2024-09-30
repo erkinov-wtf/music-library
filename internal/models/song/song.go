@@ -15,7 +15,7 @@ type Song struct {
 	Link      *string        `gorm:"column:link;type:varchar"`
 	CreatedAt time.Time      `gorm:"column:created_at"`
 	UpdatedAt time.Time      `gorm:"column:updated_at"`
-	DeletedAt gorm.DeletedAt `gorm:"column:deleted_at"`
+	DeletedAt gorm.DeletedAt `json:"-" swaggerignore:"true"`
 }
 
 func (song *Song) BeforeCreate(*gorm.DB) (err error) {
